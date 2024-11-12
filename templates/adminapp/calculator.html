@@ -1,0 +1,20 @@
+{% include "Navbar/ProjectNavbar.html" %}
+<center>
+    <h1>Simple Calculator</h1>
+    <form method="post" action='#' >
+        {% csrf_token %}
+        <input type="number" name="num1" step="any" placeholder="Enter first number" required>
+        <input type="number" name="num2" step="any" placeholder="Enter second number" required>
+        <select name="operation" required>
+            <div><option value="add">+</option></div>
+            <div><option value="subtract">-</option></div>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not None %}
+    <h2>Result: {{ result }}</h2>
+    {% endif %}
+    </center>
